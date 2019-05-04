@@ -1,0 +1,157 @@
+<!--
+HTML page that is the registration page
+
+created on 28 October, 2018
+
+author: Liu Haodong and Wang Annong
+-->
+
+{% extends 'base1.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block 'content' %}
+{% if request.user.is_authenticated %}
+<div class="card col">
+ 	<div class="card-body">
+     	<form action="{% url 'rec_reg' %}" method="POST">
+        	<div class="col mb-3"">
+        	<label for="sel_hs" class="form-label">Hospital</label> 
+            	<div class="input-group">
+                	<input id="sel_hs" type="text" name="hs" class="form-control" placeholder="Select a Hospital" readonly="readonly">
+                	<div class="input-group-append">
+                    	<div class="dropdown">
+                        	<button class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown">Hospital List</button>
+                        	<div class="dropdown-menu">
+                            	{% for hs in hs_info%}
+                            	<div class="dropdown-header">{{hs.brief_introduction}}</div>
+                            	<a  onclick="get_hs_value(this.innerHTML)" class="dropdown-item hs_info">{{hs.name}}</a>
+                            	{% endfor %}
+                        	</div>
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+        	<div class="col mb-3"">
+                <label for="sel_hs" class="form-label">Department</label>
+                    <div class="input-group">
+                        <input id="sel_dp" type="text"  name="dp" class="form-control" placeholder="Select a Department" readonly="readonly">
+                        <div class="input-group-append">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown">Department List</button>
+                                <div id="dp_info" class="dropdown-menu"></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col mb-3"">
+                <label for="sel_hs" class="form-label">Doctor</label>
+                    <div class="input-group">
+                        <input id="sel_dr" type="text" name="dr" class="form-control" placeholder="Select a Doctor" readonly="readonly">
+                        <div class="input-group-append">
+                            <div class="dropdown">
+                                <button class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown">Doctor List</button>
+                                <div id="dr_info" class="dropdown-menu "></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col mb-3">
+                <label for="sel_user" class="form-label">Username</label>
+                <div class="input-group"><input id="sel_user" name="user" type="text" class="form-control" placeholder="{{ request.user.username }}" readonly="readonly"></div> 
+            </div>
+            <div class="col mb-3">
+                <label for="sel_data" class="form-label">Select a Date</label>
+                <div class="input-group"><input onclick="get_date_value()" id="sel_date" name="reg_date" type="date"class="form-control"></div> 
+            </div>
+     	<p id="result" class="card-footer"></p>
+     	<button onclick="dopost('{% url 'rec_reg' %}')" id ="DOPOST"class="btn btn-outline-danger btn-lg col-8 offset-2">Confirm to Submit</button>
+     	<input  id="dr_username" name="dr_username" type="hidden" class="form-control">
+     	</form>
+ 	</div>
+</div>
+<script>
+var hs_info;
+var dp_info;
+var dr_info;
+var usr_info;
+var reg_date;
+var dr_username;
+
+function get_hs_value (str){
+    hs_info=str;
+    document.getElementById('sel_hs').placeholder=hs_info;
+    output_result ()
+}
+
+function get_dp_value (str){
+    dp_info=str;
+    document.getElementById('sel_dp').placeholder=dp_info;
+    output_result ()
+}
+
+function get_dr_value (str){
+    dr_info=str;
+    usr_info=document.getElementById('sel_user').placeholder;
+    document.getElementById('sel_dr').placeholder=dr_info;
+    document.getElementById('dr_username').placeholder=dr_username;
+    output_result ()
+}
+
+function get_date_value (str){
+    $("#sel_date").change(function(){
+        reg_date=$("#sel_date").val();
+        console.log(reg_date)
+        output_result()
+    });
+    console.log(reg_date)
+    output_result ()
+}
+
+function dopost(url)
+{
+    $.post(url,{'hs':'','dp':'','dr':'','user':'','reg_date':'','dr_username':''}) 
+}
+
+function output_result (){
+    document.getElementById('sel_hs').value=document.getElementById('sel_hs').placeholder;
+    document.getElementById('sel_dp').value=document.getElementById('sel_dp').placeholder;
+    document.getElementById('sel_dr').value=document.getElementById('sel_dr').placeholder;
+    document.getElementById('sel_user').value=document.getElementById('sel_user').placeholder;
+    document.getElementById('dr_username').value = document.getElementById('dr_username').placeholder;
+    document.getElementById('result').innerHTML="<h2>Check List</h2><br><h3>Hospital:</h3><p>"+hs_info+"</p><br><h3>Department:</h3><p>"+dp_info+"</p><br><h3>Doctor:</h3><p>"+dr_info+"</p><br><h3>Username:</h3><p>"+usr_info+"</p>"+"<br><h3>Date</h3><p>"+reg_date+"</p>";
+}
+
+$(document).ready(function(){
+    $(".hs_info").click(function(){
+    $.get("/reg/data_refresh",{'ret_data':hs_info,'status':'hs'}, function(ret){
+        $('#dp_info').empty()
+        $.each(ret,function(a,b){
+            var temp = "<a onclick=\"get_dp_value(this.innerHTML)\" class=\"dropdown-item dp_info\">"+b+"</a>"
+            $('#dp_info').append(temp)
+        })
+        $(".dp_info").click(function(){
+    $.get("/reg/data_refresh",{'ret_data':dp_info,'status':'dp'}, function(ret){
+        $('#dr_info').empty()
+        $.each(ret,function(a,b){
+            var temp = "<a onclick=\"get_dr_value(this.innerHTML)\" class=\"dropdown-item\">"+b+"</a>"
+            dr_username = a
+            $('#dr_info').append(temp)
+        })  
+    })
+    });
+    })
+    });
+});
+</script>
+{% else %}
+<div class="col jumbotron bg-dark text-light">
+    <h1 class="display-1">Ooops!</h1>
+    <p class="lead">
+    	It seems that you do not log in.<br />
+    	So log in first, please! 
+    </p>
+    <a href="{% url 'login'%}" class="btn btn-success btn-lg">Let's begin!</a>
+</div>
+{% endif %}
+{% endblock %}

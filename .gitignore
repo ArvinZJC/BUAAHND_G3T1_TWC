@@ -1,0 +1,24 @@
+## Ignore unnecessary files to avoid pushing them.
+
+# byte-compiled/optimised/DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# translations
+*.mo
+*.pot
+
+# Django stuff
+local_settings.py
+
+# log files
+*.log
+
+# possible junk files during the development with Python on Windows
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+
+# others
+/.settings/

@@ -1,0 +1,86 @@
+<!--  
+HTML page that is the login page
+
+created on 28 October, 2018
+
+author: Zhao Jichen and Ye Yifan
+-->
+
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Log In{% endblock %}
+
+{% block 'content1' %}
+<div  class="noactivebox dialogbox" id="jsUnactiveForm" >
+    <h1>Tips for Verifying Your Email</h1>
+    <div class="close jsCloseDialog"><img src="{% static 'img/dig_close.png' %}"/></div>
+    <div class="center">
+       	<img src="{% static 'img/send.png' %}"/>
+       	<p>A verification link has been sent to the email address you provided (<span class="green" id="jsEmailToActive">12@13.com</span>).</p>
+       	<p class="a">Please <a class="btn" id="jsGoToEmail" target="_blank" href="http://mail.qq.com">check your email now</a> and click on the link to activate your account.</p>
+       	<p class="zy_success upmove"></p>
+       	<p style="display: none" class="sendE2">
+       		Remember to check the spam and those filtered.<br />
+       		If you do not receive the email for verification,<br />
+       		you may ask for sending it again. (<span class="c5c">60s</span>)
+       	</p>
+       	<p class="sendE">
+       		Remember to check the spam and those filtered.<br />
+       		If you do not receive the email for verification,<br />
+			you may ask for <span class="c5c green" id="jsSenEmailAgin" style="cursor: pointer">sending it again</span>.
+		</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block 'content2' %}
+<section>
+    <div class="c-box bg-box">
+        <div class="login-box clearfix">
+            <div class="hd-login clearfix">
+                <a class="index-logo" href="{% url 'home' %}"></a>
+                <h1>Log In</h1>
+                <a class="index-font" href="{% url 'home' %}"><b>Back to Home</b></a>
+            </div>
+            <div class="fl slide">
+                <div class="imgslide">
+                    <ul class="imgs">
+                    	<li><a href="https://www.healthline.com/nutrition/27-health-and-nutrition-tips"><img width="483" height="472" src="{{ MEDIA_URL }}banner/login_1.jpg" /></a></li>
+                        <li><a href="https://hitconsultant.net/2017/11/03/internet-things-digital-future-value-based-care/"><img width="483" height="472" src="{{ MEDIA_URL }}banner/login_2.jpg" /></a></li>
+                        <li><a href="https://www.health24.com/Medical/Flu/Health-tips/45-best-health-tips-ever-20120721"><img width="483" height="472" src="{{ MEDIA_URL }}banner/login_3.jpg" /></a></li>
+                    </ul>
+                </div>
+                <div class="unslider-arrow prev"></div>
+                <div class="unslider-arrow next"></div>
+            </div>
+            <div class="fl form-box">
+            	<div class="tab"></div>
+                <form action="/login/" method="post" autocomplete="off">
+                    <input type='hidden' name='csrfmiddlewaretoken' value='mymQDzHWl2REXIfPMg2mJaLqDfaS1sD5' />
+                    <div class="form-group marb20 {% if login_form.errors.username %}errorput{% endif %}">
+                        <label><b>Username</b></label>
+                        <input name="username" id="account_l" type="text" placeholder="your username/email" />
+                    </div>
+                    <div class="form-group marb8 {% if login_form.errors.username %}errorput{% endif %}">
+                        <label><b>Password</b></label>
+                        <input name="password" id="password_l" type="password" placeholder="your password" />
+                    </div>
+                    <div class="error btns login-form-tips" id="jsLoginTips">
+                        {% for key, error in login_form.errors.items %}
+                            {{ error }}
+                        {% endfor %}
+                        {{ error_message }}
+                    </div>
+                    <div class="auto-box marb38"><a class="fr" href="{% url 'forget_pwd' %}"><b>Forgot password?</b></a></div>
+                    <input class="btn btn-green" id="jsLoginBtn" type="submit" value="Log In" />
+                	<input type='hidden' name='csrfmiddlewaretoken' value='5I2SlleZJOMUX9QbwYLUIAOshdrdpRcy' />
+                    {% csrf_token %}
+                </form>
+                <p class="form-p"><b>Not a member yet? </b><a href="{% url 'sign-up' %}"><b>[Sign Up]</b></a></p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

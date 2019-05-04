@@ -1,0 +1,64 @@
+<!--  
+HTML page that is the page for getting back a password
+
+created on 28 October, 2018
+
+author: Zhao Jichen and Ye Yifan
+-->
+
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Forgot Password{% endblock %}
+
+{% block 'content2' %}
+<section>
+    <div class="c-box bg-box">
+        <div class="login-box clearfix">
+            <div class="hd-login clearfix">
+                <a class="index-logo" href="{% url 'home' %}"></a>
+                <h1>Forgot Password</h1>
+                <a class="index-font" href="{% url 'index' %}"><b>Back to Home</b></a>
+            </div>
+            <div class="fl slide">
+                <div class="imgslide">
+                    <ul class="imgs">
+                        <li><a href="https://www.rd.com/health/wellness/healthy-habits/"><img width="483" height="472" src="{{ MEDIA_URL }}banner/forgot_1.jpg" /></a></li>
+                        <li><a href="https://www.agnesian.com/blog/stay-healthy-tips-families"><img width="483" height="472" src="{{ MEDIA_URL }}banner/forgot_2.jpg" /></a></li>
+                        <li><a href="https://www.ahrq.gov/patients-consumers/patient-involvement/ask-your-doctor/tips-and-tools/beinvolved.html"><img width="483" height="472" src="{{ MEDIA_URL }}banner/forgot_3.jpg" /></a></li>
+                    </ul>
+                </div>
+                <div class="unslider-arrow prev"></div>
+                <div class="unslider-arrow next"></div>
+            </div>
+            <div class="fl form-box">
+                <div><p class="form-p"><b>Remember now? </b><a href="{% url 'login' %}"><b>[Log In]</b></a></p></div>
+                <div class="tab"></div>
+                <form id="jsFindPwdForm" method="post" action="{% url 'forget_pwd' %}" autocomplete="off">
+                    <input type='hidden' name='csrfmiddlewaretoken' value='mymQDzHWl2REXIfPMg2mJaLqDfaS1sD5'/>
+                    <div class="form-group marb20 {% if forget_from.errors.email %}errorput{% endif %}">
+                        <label><b>Email</b></label>
+                        <input type="text" id="account" name="email" placeholder="your email" />
+                    </div>
+                    <div class="form-group captcha1 marb38 {% if forget_from.errors.captchal %}errorput{% endif %}">
+                        <label><b>Captcha</b></label>
+                        {{ forget_form.captcha }}
+                    </div>
+                    <div class="error btns" id="jsForgetTips">
+                        {% for key, error in forget_from.errors.items %}
+                            {{ error }}
+                        {% endfor %}
+                        {{ error_message }}
+                    </div>
+                    <input type="hidden" name="sms_type" value="1">
+                    <input class="btn btn-green" id="jsFindPwdBtn" type="submit" value="OK"/>
+                    <input type='hidden' name='csrfmiddlewaretoken' value='5I2SlleZJOMUX9QbwYLUIAOshdrdpRcy'/>
+                    {% csrf_token %}
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<input id="isLogin" type="hidden" value="False"/>
+{% endblock %}

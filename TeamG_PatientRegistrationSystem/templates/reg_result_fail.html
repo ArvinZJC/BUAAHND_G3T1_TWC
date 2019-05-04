@@ -1,0 +1,23 @@
+<!--
+HTML page that is the bad registration page
+
+created on 6 November, 2018
+
+author: Wang Annong
+-->
+
+{% extends 'base1.html' %}
+
+{% block title %}Bad Registration{% endblock %}
+
+{% block 'content' %}
+
+<div class="col jumbotron bg-info text-light">
+    <h1 class="display-1">Oops!</h1>
+    <p class="lead">
+    	Errors!<br />
+    	It seems that you do not complete the registration form.
+    </p>
+    <a href="{% url 'reg'%}" class="btn btn-danger btn-lg">Let's go back!</a>
+</div>
+{% endblock %}
