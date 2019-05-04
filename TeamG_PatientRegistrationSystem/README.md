@@ -23,9 +23,9 @@ Team members are **Liu Haodong** (Team Leader), **Zhao Jichen**, **Ye Yifan**, a
    * arvinzjc/tomzjc@qq.com, adminzjc
    * soap/sardinecountry@163.com, adminyyf
    * arnold/864179009@qq.com, adminwan
-   * Doctor8/192182785@qq.com，123456
+   * Doctor8/192182785@qq.com, 123456
 5. Figure 1 shows the suggested settings for the user group Doctors, while Figure 2 indicates the suggested settings for the user group Ordinary Users.
-![Figure 1](doctors.JPG "Suggested settings for the user group Doctors.")
-![Figure 2](ordinary_users.JPG "Suggested settings for the user group Ordinary Users.")
+![Figure 1](doctors.JPG "Suggested settings for the user group Doctors.")<center>Figure 1</center>
+![Figure 2](ordinary_users.JPG "Suggested settings for the user group Ordinary Users.")<center>Figure 2</center>
 
 For more info on this system, turn to the relevant reports.
