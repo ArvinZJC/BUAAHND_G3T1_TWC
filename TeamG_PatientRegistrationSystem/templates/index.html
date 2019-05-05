@@ -1,8 +1,5 @@
 <!--
-HTML page that is the home page
-
-created on 28 October, 2018
-
+HTML page that is the home page;
 author: Liu Haodong and Wang Annong
 -->
 
@@ -15,21 +12,21 @@ author: Liu Haodong and Wang Annong
     <h1 class="display-1">Hello</h1>
     <p class="lead">
     	Thanks for using our system!<br />
-    	Any question or suggestion? Please email us: <span id="address" style="cursor: pointer" data-clipboard-text="prsadmin@126.com"><u>teamgprs@outlook.com</u></span><br />
+    	Any question or suggestion? Please email us: <span id="address" style="cursor: pointer" data-clipboard-text="teamgprs@outlook.com"><u>teamgprs@outlook.com</u></span><br />
     	Have a nice day! (●'◡'●)
     </p>
-    <a href="{% url 'reg'%}" class="btn btn-success btn-lg">Let's begin!</a>
+    <a href="{% url 'reg' %}" class="btn btn-success btn-lg">Let's begin!</a>
 </div>
 <script>
-	var text = document.getElementById( 'address' );
-    var clipboard = new ClipboardJS( text );
+	var text = document.getElementById('address');
+    var clipboard = new ClipboardJS(text);
     
-    clipboard.on( 'success', function( e ) {
-    	console.log( e );
-        alert( 'The email address has successfully copied to the clipboard.\nWe are looking forward to hearing from you.' );
+    clipboard.on('success', function(e) {
+    	console.log(e);
+        alert('The email address has successfully copied to the clipboard.\nWe are looking forward to hearing from you.');
     });
-    clipboard.on( 'error', function( e ) {
-    	console.log( e );
+    clipboard.on('error', function(e) {
+    	console.log(e);
     });
 </script>
 {% endblock %}

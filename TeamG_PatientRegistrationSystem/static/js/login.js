@@ -1,8 +1,5 @@
 /*
- * JavaScript code that is related to "base2.html"
- * 
- * created on 28 October, 2018
- * 
+ * JavaScript code that is related to "base2.html";
  * author: Zhao Jichen and Ye Yifan
  */
 
@@ -29,9 +26,9 @@ var hash = {
 	'21cn.com' : 'http://mail.21cn.com/',
 	'188.com' : 'http://www.188.com/',
 	'foxmail.com' : 'http://www.foxmail.com'
-}; //email templates
+}; // email templates
 
-//verify the email to activate the account
+// verify the email to activate the account
 function zy_Countdown() {
 	zy_c_num--;
 	$(".sendE2 span").html(zy_c_num + "s");
@@ -44,9 +41,9 @@ function zy_Countdown() {
 		return false;
 	}
 	setTimeout("zy_Countdown()", 1000);
-} //end function zy_Countdown
+} // end function zy_Countdown
 
-//refresh the verification code
+// refresh the verification code
 function refresh_captcha(event) {
 	$.get("/captcha/refresh/?" + Math.random(),
 			function(result) {
@@ -55,9 +52,9 @@ function refresh_captcha(event) {
 				$('#id_captcha_0').attr("value", result.key);
 			});
 	return false;
-} //end function refresh_captcha
+} // end function refresh_captcha
 
-//submit the login form
+// submit the login form
 function login_form_submit() {
 	var $jsLoginBtn = $('#jsLoginBtn'), $jsLoginTips = $('#jsLoginTips'), $accountl = $("#account_l"), args = window.location.search
 			.substr(1, window.location.search.length).split('&'), arg = [], verify = verifyDialogSubmit([
@@ -111,7 +108,7 @@ function login_form_submit() {
 							$('#jsLoginForm')[0].reset();
 							window.location.href = data.url;
 						} else if (data.status == "failure") {
-							//execute if the account is not activated
+							// execute if the account is not activated
 							if (data.msg == 'no_active') {
 								zyemail = $accountl.val();
 								zyUname = zyemail;
@@ -133,9 +130,9 @@ function login_form_submit() {
 					$jsLoginBtn.removeAttr("disabled");
 				}
 			});
-} //end function login_form_submit
+} // end function login_form_submit
 
-//submit the form for getting back a password
+// submit the form for getting back a password
 function find_password_form_submit() {
 	var $findPwdBtn = $("#jsFindPwdBtn"), $idAccount = $("#account");
 	verify = verifyDialogSubmit([ {
@@ -206,7 +203,7 @@ function find_password_form_submit() {
 			$findPwdBtn.removeAttr("disabled");
 		}
 	});
-} //end function find_password_form_submit
+} // end function find_password_form_submit
 
 $('#jsSetNewPwdBtn').on('click', function() {
 	var _self = $(this), $idAccount = $("#account");
@@ -269,11 +266,11 @@ $('#jsSetNewPwdBtn').on('click', function() {
 })
 
 $(function() {
-	//for IE 9
+	// for IE 9
 	function isPlaceholder() {
 		var input = document.createElement('input');
 		return 'placeholder' in input;
-	} //end function isPlaceholder
+	} // end function isPlaceholder
 	if (!isPlaceholder()) {
 		$("input").not("input[type='password']").each(function() {
 			if ($(this).val() == "" && $(this).attr("placeholder") != "") {
@@ -359,7 +356,7 @@ $(function() {
 		$(this).parent().removeClass('focus').addClass('blur');
 	});
 
-	//a button to close the dialog box
+	// a button to close the dialog box
 	$('.jsCloseDialog').on('click', function() {
 		$(this).parents('.dialogbox').hide();
 		$('#dialogBg').hide();
@@ -368,7 +365,7 @@ $(function() {
 		}
 	});
 
-	//refresh the verification code
+	// refresh the verification code
 	$('#email_register_form .captcha-refresh').click({
 		'form_id' : 'email_register_form'
 	}, refresh_captcha);
@@ -391,19 +388,19 @@ $(function() {
 		'form_id' : 'jsChangePhoneForm'
 	}, refresh_captcha);
 
-	//log in
+	// log in
 	$('#jsLoginBtn').on('click', function() {
 		login_form_submit();
 	})
 	
-	//the keyboard event for the login form
+	// the keyboard event for the login form
 	$("#jsLoginForm").keydown(function(event) {
 		if (event.keyCode == 13) {
 			$('#jsLoginBtn').trigger('click');
 		}
 	});
 
-	//sign up with an email
+	// sign up with an email
 	$('#jsEmailRegBtn').on('click', function() {
 		register_form_submit(this, 'emailReg');
 	});
@@ -413,7 +410,7 @@ $(function() {
 		}
 	});
 
-	//the keyboard event for the password finding form
+	// the keyboard event for the password finding form
 	$('#jsFindPwdBtn').on('click', function() {
 		find_password_form_submit();
 	});
@@ -423,7 +420,7 @@ $(function() {
 		}
 	});
 
-	//send a verification link to the user's email again
+	// send a verification link to the user's email again
 	$('#jsSenEmailAgin').on('click', function(e) {
 		e.preventDefault();
 		$(".zy_success").removeClass("upmove");
@@ -439,7 +436,6 @@ $(function() {
 			},
 			success : function(data) {
 				zy_str = "Succeeded to send a verification link to your email again!";
-				//console.log(data)
 				if (data)
 					zy_Countdown();
 			},

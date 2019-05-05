@@ -1,8 +1,5 @@
 /*
- * JavaScript code that is related to "base2.html"
- * 
- * created on 28 October, 2018
- * 
+ * JavaScript code that is related to "base2.html";
  * author: Zhao Jichen and Ye Yifan
  */
 
