@@ -8,11 +8,11 @@ Team members are **Liu Haodong** (Team Leader), **Zhao Jichen**, **Ye Yifan**, a
 
 ## Partial UI
 
-![UI1.png](UI1.png)<center>Figure 1</center>
-![UI2.png](UI2.png)<center>Figure 2</center>
-![UI3.png](UI3.png)<center>Figure 3</center>
-![UI4.png](UI4.png)<center>Figure 4</center>
-![UI5.png](UI5.png)<center>Figure 5</center>
+![UI1.png](UI1.png)Figure 1
+![UI2.png](UI2.png)Figure 2
+![UI3.png](UI3.png)Figure 3
+![UI4.png](UI4.png)Figure 4
+![UI5.png](UI5.png)Figure 5
 
 ## ATTENTION
 
@@ -33,7 +33,7 @@ Team members are **Liu Haodong** (Team Leader), **Zhao Jichen**, **Ye Yifan**, a
    * arnold/864179009@qq.com, adminwan
    * Doctor8/192182785@qq.com, 123456
 5. Figure 6 shows the suggested settings for the user group Doctors, while Figure 7 indicates the suggested settings for the user group Ordinary Users.
-![doctors.JPG](doctors.JPG "Suggested settings for the user group Doctors.")<center>Figure 6</center>
-![ordinary_users.JPG](ordinary_users.JPG "Suggested settings for the user group Ordinary Users.")<center>Figure 7</center>
+![doctors.JPG](doctors.JPG "Suggested settings for the user group Doctors.")Figure 6
+![ordinary_users.JPG](ordinary_users.JPG "Suggested settings for the user group Ordinary Users.")Figure 7
 
 For more info on the project, turn to the relevant reports.
