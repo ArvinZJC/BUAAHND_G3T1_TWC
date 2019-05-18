@@ -1,10 +1,18 @@
 # TeamG_PatientRegistrationSystem From the Project BUAAHND_G3T1_TWC
 
-This is a simplified Patient Registration System based on Web developed by **Team G** as the final assignment of the course **Team Working in Computing**  during Term 1 of Grade 3 in BUAA HND. It must be admitted that although all team members worked hard on developing a system close to these commercial ones, we still have a long way to go.
+This project is named as Patient Registration System which contains a simplified patient registration system based on Web developed by **Team G** as the final assignment of the course **Team Working in Computing**  during Term 1 of Grade 3 in BUAA HND. It must be admitted that although all team members worked hard on developing a system close to these commercial ones, we still have a long way to go.
 
 ## About Team G
 
 Team members are **Liu Haodong** (Team Leader), **Zhao Jichen**, **Ye Yifan**, and **Wang Annong**.
+
+## Partial UI
+
+![UI1.png](UI1.png)<center>Figure 1</center>
+![UI2.png](UI2.png)<center>Figure 2</center>
+![UI3.png](UI3.png)<center>Figure 3</center>
+![UI4.png](UI4.png)<center>Figure 4</center>
+![UI5.png](UI5.png)<center>Figure 5</center>
 
 ## ATTENTION
 
@@ -24,8 +32,8 @@ Team members are **Liu Haodong** (Team Leader), **Zhao Jichen**, **Ye Yifan**, a
    * soap/sardinecountry@163.com, adminyyf
    * arnold/864179009@qq.com, adminwan
    * Doctor8/192182785@qq.com, 123456
-5. Figure 1 shows the suggested settings for the user group Doctors, while Figure 2 indicates the suggested settings for the user group Ordinary Users.
-![doctors.JPG](doctors.JPG "Suggested settings for the user group Doctors.")<center>Figure 1</center>
-![ordinary_users.JPG](ordinary_users.JPG "Suggested settings for the user group Ordinary Users.")<center>Figure 2</center>
+5. Figure 6 shows the suggested settings for the user group Doctors, while Figure 7 indicates the suggested settings for the user group Ordinary Users.
+![doctors.JPG](doctors.JPG "Suggested settings for the user group Doctors.")<center>Figure 6</center>
+![ordinary_users.JPG](ordinary_users.JPG "Suggested settings for the user group Ordinary Users.")<center>Figure 7</center>
 
-For more info on this system, turn to the relevant reports.
+For more info on the project, turn to the relevant reports.
