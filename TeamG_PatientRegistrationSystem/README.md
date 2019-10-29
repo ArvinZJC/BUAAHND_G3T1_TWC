@@ -16,7 +16,7 @@ Team members are **Liu Haodong** (Team Leader), **Zhao Jichen**, **Ye Yifan**, a
 
 ## ATTENTION
 
-1. By 13 November 2018, the official version of Xadmin had not worked well with Django 2.1, so do not type the command "pip install xadmin" into the command prompt under the root directory of the system! If it has been installed, please uninstall it! The system will use Xadmin modified from an official version by the third party. Thanks to vip68 (<https://github.com/vip68/xadmin_bugfix>)!
+1. By 13 November 2018, the official version of Xadmin had not worked well with Django 2.1, so do not type the command "pip install xadmin" into the command prompt! If it has been installed, please uninstall it! The system will use Xadmin modified from a version of the third party, which is based an official version. Thanks to vip68 (<https://github.com/vip68/xadmin_bugfix>)!
 2. You can type the command "pip install -r requirements.txt" into the command prompt under the root directory of the project to simplify the pip installation.
 3. Some common commands for running this system are listed as follows:
    * python manage.py makemigrations --empty users
