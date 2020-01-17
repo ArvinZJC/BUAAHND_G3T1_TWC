@@ -4,7 +4,7 @@ This project is named as Patient Registration System which contains a simplified
 
 ## About Team G
 
-Team members are **Liu Haodong** (Team Leader), **Zhao Jichen**, **Ye Yifan**, and **Wang Annong**.
+Team members are **Haodong Liu** (Team Leader), **Jichen Zhao**, **Yifan Ye**, and **Annong Wang**.
 
 ## Partial UI
 
