@@ -16,10 +16,9 @@ Team members are **Haodong Liu** (Team Leader), **Jichen Zhao**, **Yifan Ye**, a
 
 ## ATTENTION
 
-1. By 18 February 2020, everything looks good with VS Code + Python 3.8.1.
-2. By 13 November 2018, the official version of Xadmin had not worked well with Django 2.1 or higher versions, so do not type the command "pip install xadmin" into the command prompt! If it has been installed, please uninstall it. The system will use Xadmin modified from a version of the third party, which is based on an official version. Thanks to vip68 (<https://github.com/vip68/xadmin_bugfix>)!
-3. You can type the command "pip install -r requirements.txt" into the command prompt under the root directory of the project to simplify the pip installation.
-4. Some common commands for running this system are listed as follows:
+1. By 13 November 2018, the official version of Xadmin had not worked well with Django 2.1 or higher versions, so do not type the command "pip install xadmin" into the command prompt! If it has been installed, please uninstall it. The system will use Xadmin modified from a version of the third party, which is based on an official version. Thanks to vip68 (<https://github.com/vip68/xadmin_bugfix>)!
+2. You can type the command "pip install -r requirements.txt" into the command prompt under the root directory of the project to simplify the pip installation.
+3. Some common commands for running this system are listed as follows:
    * python manage.py makemigrations --empty users
    * python manage.py makemigrations --empty hospitals
    * python manage.py makemigrations
@@ -27,13 +26,13 @@ Team members are **Haodong Liu** (Team Leader), **Jichen Zhao**, **Yifan Ye**, a
    * python manage.py migrate
    * python manage.py createsuperuser
    * python manage.py runserver
-5. For the current version of the data file (db.sqlite3), it contains doctor accounts for test purposes which cannot log in (Doctor1, Doctor2, Doctor3, Doctor4, Doctor5, Doctor6, and Doctor7), and it also has the following real accounts (username/email, password):
+4. For the current version of the data file (db.sqlite3), it contains doctor accounts for test purposes which cannot log in (Doctor1, Doctor2, Doctor3, Doctor4, Doctor5, Doctor6, and Doctor7), and it also has the following real accounts (username/email, password):
    * vikashd/vikas@igres.net, vikas123
    * arvinzjc/tomzjc@qq.com, adminzjc
    * soap/sardinecountry@163.com, adminyyf
    * arnold/864179009@qq.com, adminwan
    * Doctor8/192182785@qq.com, 123456
-6. Figure 6 shows the suggested settings for the user group Doctors, while Figure 7 indicates the suggested settings for the user group Ordinary Users.
+5. Figure 6 shows the suggested settings for the user group Doctors, while Figure 7 indicates the suggested settings for the user group Ordinary Users.
 ![doctors.JPG](doctors.JPG "Suggested settings for the user group Doctors.")Figure 6
 ![ordinary_users.JPG](ordinary_users.JPG "Suggested settings for the user group Ordinary Users.")Figure 7
 
