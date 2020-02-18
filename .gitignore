@@ -20,5 +20,12 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 
+# Visual Studio Code
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
 # others
 /.settings/
