@@ -5,7 +5,6 @@ from django.db import router
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.template.response import TemplateResponse
-from django.utils import six
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext as _, ungettext
@@ -100,7 +99,7 @@ class DeleteSelectedAction(BaseActionView):
         # Populate deletable_objects, a data structure of all related objects that
         # will also be deleted.
 
-        if django_version > (2, 0):
+        if django_version > (2, 1):
             deletable_objects, model_count, perms_needed, protected = get_deleted_objects(
                 queryset, self, self.admin_site)
         else:
@@ -243,8 +242,7 @@ class ActionPlugin(BaseAdminPlugin):
 
         # get_action might have returned None, so filter any of those out.
         actions = filter(None, actions)
-        if six.PY3:
-            actions = list(actions)
+        actions = list(actions)
 
         # Convert the actions into a OrderedDict keyed by name.
         actions = OrderedDict([

@@ -4,15 +4,9 @@ from future.utils import iteritems
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
 from django.db.models.base import ModelBase
-from django.utils import six
 from django.views.decorators.cache import never_cache
 from django.template.engine import Engine
 import inspect
-
-if six.PY2 and sys.getdefaultencoding() == 'ascii':
-    import imp
-    imp.reload(sys)
-    sys.setdefaultencoding("utf-8")
 
 
 class AlreadyRegistered(Exception):
@@ -347,7 +341,7 @@ class AdminSite(object):
         This takes into account the USE_I18N setting. If it's set to False, the
         generated JavaScript will be leaner and faster.
         """
-        return JavaScriptCatalog.as_view(packages=['django.contrib.admin'])(request)
+        return JavaScriptCatalog.as_view(packages=['django.contrib.admin', 'xadmin'])(request)
 
 # This global object represents the default admin site, for the common case.
 # You can instantiate AdminSite in your own code to create a custom admin site.

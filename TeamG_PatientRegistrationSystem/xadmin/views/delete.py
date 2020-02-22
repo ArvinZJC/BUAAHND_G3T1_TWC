@@ -3,7 +3,6 @@ from django.db import transaction, router
 from django.http import Http404, HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django import VERSION as django_version
-from django.utils import six
 from django.utils.encoding import force_text
 from django.utils.html import escape
 from django.utils.translation import ugettext as _
@@ -39,7 +38,7 @@ class DeleteAdminView(ModelAdminView):
 
         # Populate deleted_objects, a data structure of all related objects that
         # will also be deleted.
-        if django_version > (2, 0):
+        if django_version > (2, 1):
             (self.deleted_objects, model_count, self.perms_needed, self.protected) = get_deleted_objects(
                 [self.obj], self, self.admin_site)
         else:
@@ -64,8 +63,7 @@ class DeleteAdminView(ModelAdminView):
         self.delete_model()
 
         response = self.post_response()
-        cls_str = str if six.PY3 else basestring
-        if isinstance(response, cls_str):
+        if isinstance(response, str):
             response = HttpResponseRedirect(response)
         return response
 
