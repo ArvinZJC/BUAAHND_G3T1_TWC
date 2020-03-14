@@ -1,4 +1,4 @@
-# TeamG_PatientRegistrationSystem From the Project BUAAHND_G3T1_TWC
+# [BUAAHND_G3T1_TWC](https://github.com/ArvinZJC/BUAAHND_G3T1_TWC)/TeamG_PatientRegistrationSystem
 
 This project is named as **Patient Registration System** which contains a simplified patient registration system based on Web developed by **Team G** as the final assignment of the course **Team Working in Computing**  during Term 1 of Grade 3 in BUAA HND. It must be admitted that although all team members worked hard on developing a system close to these commercial ones, we still have a long way to go.
 
