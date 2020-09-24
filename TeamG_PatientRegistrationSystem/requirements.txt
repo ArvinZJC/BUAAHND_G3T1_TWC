@@ -1,7 +1,7 @@
 astroid==2.0.4
 colorama==0.4.0
 diff-match-patch==20121119
-django==2.2.10
+django==2.2.13
 django-crispy-forms==1.7.2
 django-formtools==2.1
 django-import-export==1.1.0
